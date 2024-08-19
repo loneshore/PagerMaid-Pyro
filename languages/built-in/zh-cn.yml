@@ -399,6 +399,7 @@ status_telethon: Telethon 版本
 status_pyrogram: Pyrogram 版本
 status_pgm: PagerMaid 版本
 status_uptime: 运行时间
+status_memory: 内存占用
 ## stats
 stats_des: 查看我的对话统计信息。
 stats_loading: 加载中 . . .

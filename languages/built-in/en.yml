@@ -399,6 +399,7 @@ status_telethon: Telethon version
 status_pyrogram: Pyrogram version
 status_pgm: PagerMaid version
 status_uptime: Uptime
+status_memory: Memory usage
 ## stats
 stats_des: View conversation statistics.
 stats_loading: Loading...

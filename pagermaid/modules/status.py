@@ -1,6 +1,8 @@
 """PagerMaid module that contains utilities related to system status."""
 
 import re
+import psutil
+
 from datetime import datetime
 from getpass import getuser
 from platform import uname, python_version
@@ -49,6 +51,8 @@ async def status(message: Message):
     # database = lang('status_online') if redis_status() else lang('status_offline')
     # uptime https://gist.github.com/borgstrom/936ca741e885a1438c374824efb038b3
     uptime = await get_bot_uptime()
+    process = psutil.Process()
+    memory_info = process.memory_info()
     text = (
         f"**{lang('status_hint')}** \n"
         f"{lang('status_name')}: `{uname().node}` \n"
@@ -56,8 +60,9 @@ async def status(message: Message):
         f"{lang('status_release')}: `{uname().release}` \n"
         f"{lang('status_python')}: `{python_version()}` \n"
         f"{lang('status_pyrogram')}: `{__version__}` \n"
-        f"{lang('status_pgm')}: `{pgm_version}`\n"
-        f"{lang('status_uptime')}: `{uptime}`"
+        f"{lang('status_pgm')}: `{pgm_version}` \n"
+        f"{lang('status_uptime')}: `{uptime}` \n"
+        f"{lang('status_memory')}: `{memory_info.rss / (1024 * 1024):.2f} MB`"
     )
     await message.edit(text)
 

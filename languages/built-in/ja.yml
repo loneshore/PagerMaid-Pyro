@@ -398,7 +398,8 @@ status_python: Python version
 status_telethon: Telethon version
 status_pyrogram: Pyrogram version
 status_pgm: PagerMaid version
-status_uptime: Utime
+status_uptime: Uptime
+status_memory: Memory usage
 ## stats
 stats_des: Viewconversation statistics.
 stats_loading: ロードリング...
