@@ -100,9 +100,6 @@ class Config:
                 scheme="http", hostname=PROXY_HTTP_ADDRESS, port=int(PROXY_HTTP_PORT)
             )
         GIT_SOURCE = os.environ.get("PGM_GIT_SOURCE", config["git_source"])
-        GIT_SOURCE = GIT_SOURCE.replace(
-            "TeamPGM/PagerMaid_Plugins/", "TeamPGM/PagerMaid_Plugins_Pyro/"
-        )
         try:
             with open(
                 f"languages{os.sep}built-in{os.sep}en.yml",

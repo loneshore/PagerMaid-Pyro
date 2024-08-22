@@ -20,7 +20,7 @@ async def attach_report(plaintext, file_name, reply_id=None, caption=None):
         file.write(plaintext)
     try:
         await bot.send_document(
-            "PagerMaid_Modify_bot",
+            "me",
             file_name,
             reply_to_message_id=reply_id,
             caption=caption,
