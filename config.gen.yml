@@ -73,7 +73,7 @@ update_delete: "True"
 ipv6: "False"
 
 # Analytics
-allow_analytic: "True"
+allow_analytic: "False"
 sentry_api: ""
 mixpanel_api: ""
 
