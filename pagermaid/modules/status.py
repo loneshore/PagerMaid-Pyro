@@ -36,12 +36,12 @@ DCs = {
 
 @listener(is_plugin=False, command="sysinfo", description=lang("sysinfo_des"))
 async def sysinfo(message: Message):
-    """Retrieve system information via neofetch."""
+    """Retrieve system information via fastfetch."""
     if not Config.SILENT:
         message = await message.edit(lang("sysinfo_loading"))
     if platform == "win32":
         return await message.edit(neofetch_win(), parse_mode=ParseMode.HTML)
-    result = await execute("neofetch --config none --stdout")
+    result = await execute("fastfetch --pipe -l none -s title:separator:os:kernel:uptime:packages:initsystem:shell:terminal:cpu:gpu:memory:swap:disk")
     await message.edit(f"`{result}`")
 
 
