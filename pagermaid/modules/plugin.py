@@ -35,7 +35,7 @@ def move_plugin(file_path):
 @listener(
     is_plugin=False,
     outgoing=True,
-    command="apt",
+    command="pkg",
     need_admin=True,
     diagnostics=False,
     description=lang("apt_des"),
@@ -330,7 +330,7 @@ async def plugin(message: Message):
 @listener(
     is_plugin=False,
     outgoing=True,
-    command="apt_source",
+    command="pkg_source",
     need_admin=True,
     description=lang("apt_source_des"),
     parameters=lang("apt_source_parameters"),
