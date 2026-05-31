@@ -1,9 +1,10 @@
-import subprocess
 from importlib.util import find_spec
 from sys import executable
 from asyncio import create_subprocess_shell
 from asyncio.subprocess import PIPE
 from typing import Optional
+
+from pagermaid.utils._package import install_package
 
 
 async def execute(command, pass_error=True):
@@ -36,7 +37,7 @@ def pip_install(
         # when import name is not provided, use package name
         alias = package
     if find_spec(alias) is None:
-        subprocess.call([executable, "-m", "pip", "install", f"{package}{version}"])
+        install_package([f"{package}{version}"], executable)
         if find_spec(package) is None:
             return False
     return True

@@ -1,7 +1,6 @@
 from os import environ
-from sys import executable
 
-from pagermaid.utils import execute
+from pagermaid.utils import execute, package_install_shell_command
 
 
 async def update(force: bool = False):
@@ -14,5 +13,7 @@ async def update(force: bool = False):
         await execute("uv cache clean")
         await execute("uv cache prune")
     else:
-        await execute(f"{executable} -m pip install --upgrade -r requirements.txt")
-        await execute(f"{executable} -m pip install -r requirements.txt")
+        await execute(
+            package_install_shell_command(["--upgrade", "-r", "requirements.txt"])
+        )
+        await execute(package_install_shell_command(["-r", "requirements.txt"]))

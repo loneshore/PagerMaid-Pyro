@@ -1,6 +1,20 @@
 import asyncio
-import os
-from sys import executable, exit
+import shutil
+import subprocess
+import sys
+from sys import executable
+
+
+def install_package(package: str):
+    if shutil.which("uv"):
+        command = ["uv", "pip", "install", "--python", executable, package]
+    else:
+        command = [executable, "-m", "pip", "install", package]
+    try:
+        subprocess.check_call(command)  # nosec B603 - command is built from a controlled allow-list
+    except subprocess.CalledProcessError as exc:
+        print(f"Failed to install {package}: {exc}")
+        sys.exit(exc.returncode or 1)
 
 try:
     from pyrogram.errors import ApiIdInvalid, PhoneNumberInvalid
@@ -9,7 +23,7 @@ try:
     print("Found an existing installation of Pyrogram...\nSuccessfully Imported.")
 except ImportError:
     print("Installing Pyrogram...")
-    os.system(f"{executable} -m pip install pyrogram")
+    install_package("pyrogram")
     print("Done. Installed and imported pyrogram.")
     from pyrogram.errors import ApiIdInvalid, PhoneNumberInvalid
     from pyrogram import Client
