@@ -20,7 +20,6 @@ certifi==2026.2.25
     # via
     #   httpcore
     #   httpx
-    #   sentry-sdk
 click==8.3.2
     # via uvicorn
 colorama==0.4.6 ; sys_platform == 'win32'
@@ -80,8 +79,6 @@ pytz==2026.1.post1
 pyyaml==6.0.3
     # via pagermaid-pyro
 ruff==0.15.10
-sentry-sdk==2.58.0
-    # via pagermaid-pyro
 simpleeval==1.0.7
     # via casbin
 socksio==1.0.0
@@ -111,8 +108,6 @@ tzdata==2026.1 ; sys_platform == 'win32'
     # via tzlocal
 tzlocal==5.3.1
     # via apscheduler
-urllib3==2.6.3
-    # via sentry-sdk
 uvicorn==0.44.0
     # via pagermaid-pyro
 uvloop==0.22.1 ; platform_python_implementation == 'CPython' and sys_platform != 'win32'
