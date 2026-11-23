@@ -51,6 +51,8 @@ idna==3.20
     #   httpx2
 jinja2==3.1.6
     # via amis-python
+kuricrypt==0.1.2
+    # via pagermaid-pyro
 markupsafe==3.0.4
     # via jinja2
 opentelemetry-api==1.45.2
@@ -78,8 +80,6 @@ pyqrcode==1.2.1
 pyreadline3==3.5.6 ; sys_platform == 'win32'
     # via humanfriendly
 pyrogram @ git+https://github.com/TeamPGM/pyrogram@cdd0860a0db19e9aa14af754a33ed110c5c3f97e
-    # via pagermaid-pyro
-pyrotgcrypto==1.2.7
     # via pagermaid-pyro
 python-socks==3.2.2
     # via pyrogram
